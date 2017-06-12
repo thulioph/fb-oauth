@@ -12,6 +12,7 @@ const displayTemplate = (templateId, templateData, element) => {
 	element.innerHTML = template(templateData);
 };
 
+
 // ====
 
 if ('standalone' in navigator && navigator.standalone) {

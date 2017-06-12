@@ -43,7 +43,9 @@ const config = {
 
     devServer: {
         hot: true,
-        contentBase: './'
+        compress: true,
+        watchContentBase: true,
+        publicPath: '/dist/'
     },
 };
 
