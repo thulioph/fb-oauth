@@ -20,7 +20,7 @@ We would love for you to contribute to **fb-oauth** and help us make this even b
 
 ## Submit a Pull Request
 
-To submit a new feature, make sure that changes are done to the source code. [Follow our style guide](#style-guide) and do not forget the tests.
+To submit a new feature, make sure that changes are done to the source code and do not forget the tests.
 
 Try to solve a problem for each pull request, this increases the chances of acceptance. When in doubt, open a [new issue](#open-an-issue) so we can answer you. Look existing issues for ideas or to see if a similar issue has already been submitted.
 
