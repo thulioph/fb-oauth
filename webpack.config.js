@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const config = {
     entry: {
         app: [
-            './src/js/main.js'
+            './main.js'
         ]
     },
 
