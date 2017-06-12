@@ -12,14 +12,14 @@ const APP = {
 	WebApp() {
 		this.origin = 'webapp';
 		this.facebook = new FacebookURL(window.FB);
-
-		button.addEventListener('click', this.handleClick.bind(this), false);
 	},
 
 	Desktop() {
 		this.origin = 'desktop';
 		this.facebook = new Facebook();
+	},
 
+	initEvents() {
 		button.addEventListener('click', this.handleClick.bind(this), false);
 	},
 
@@ -48,6 +48,6 @@ const APP = {
 			BuildTemplate(fbTemplate, obj, fbOutput);
 		});
 	}
-}
+};
 
 export default APP;

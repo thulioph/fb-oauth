@@ -12,7 +12,6 @@ const displayNavigatorData = () => {
 }
 
 document.addEventListener('DOMContentLoaded', (e) => {
-
 	displayNavigatorData();
 
 	if ('standalone' in navigator && navigator.standalone) {
@@ -20,4 +19,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
 	} else {
 		App.Desktop();
 	}
+
+	App.initEvents();
 }, false);

@@ -17,21 +17,13 @@ class Facebook extends EventEmitter {
 			this.fb_provider = window.FB;
 		}
 
-		this.fb_provider
-			.getLoginStatus(this._handleStatus.bind(this));
+		this.fb_provider.getLoginStatus(this._handleStatus.bind(this));
 	}
 
 	login() {
 		this.fb_provider
 			.login(this._handleLogin.bind(this), {
 				scopes: 'public_profile,email'
-			});
-	}
-
-	logout() {
-		this.fb_provider
-			.logout((evt) => {
-				console.warn(evt);
 			});
 	}
 
