@@ -7,7 +7,6 @@ We would love for you to contribute to **fb-oauth** and help us make this even b
 
 - [Open an Issue](#open-an-issue)
 - [Submit a Pull Request](#submit-a-pull-request)
-- [Style Guide](#style-guide)
 - [Test](#test)
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
