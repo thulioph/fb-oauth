@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Facebook oAuth">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="apple-touch-icon" href="/custom_icon.png">
+  <link rel="apple-touch-startup-image" href="/launch.png">
+
+	<title>Facebook oAuth</title>
+
+	<style>
+		body {
+			font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+		}
+
+		li {
+			margin-bottom: 5px;
+			word-break: break-all;
+		}
+
+		span {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+	<main>
+		<section>
+			<aside id="output"></aside>
+		</section>
+
+		<section>
+			<button id="facebook-btn">
+				Acessar com o Facebook
+			</button>
+
+			<aside id="output-token"></aside>
+
+			<aside id="output-facebook"></aside>
+		</section>
+	</main>
+
+	<!-- Facebook -->
+	<script id="facebook" type="text/x-handlebars-template">
+		<h3>Facebook data</h3>
+
+		<ul>
+			<li><span>ID:</span> {{id}}</li>
+			<li><span>NAME:</span> {{name}}</li>
+			<li><span>PHOTO:</span> {{photo}}</li>
+			<li><span>EMAIL:</span> {{email}}</li>
+		</ul>
+	</script>
+
+	<!-- Facebook Token -->
+	<script id="token" type="text/x-handlebars-template">
+		<h3>Facebook sensitive data</h3>
+
+		<ul>
+			<li><span>ACCESS_TOKEN:</span> {{accessToken}}</li>
+			<li><span>USER_ID:</span> {{userID}}</li>
+			<li><span>EXPIRES_IN:</span> {{expiresIn}} min</li>
+			<li><span>SIGNED_REQUEST:</span> {{signedRequest}}</li>
+		</ul>
+	</script>
+
+	<!-- Navigator -->
+	<script id="navigator" type="text/x-handlebars-template">
+		<h3>Navigator info</h3>
+		<ul>
+			<li>{{language}}</li>
+			<li>{{vendor}}</li>
+			<li>{{userAgent}}</li>
+			<li>{{product}}</li>
+			<li>{{platform}}</li>
+			<li>{{onLine}}</li>
+		</ul>
+
+		<br>
+
+		<h3>Browser plugins</h3>
+		<ul>
+			{{#each plugins}}
+			<li>{{name}} - {{description}}</li>
+			{{/each}}
+		</ul>
+	</script>
+
+	<!-- Libs -->
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '136721383558088',
+	      xfbml      : true,
+	      version    : 'v2.9'
+	    });
+	    FB.AppEvents.logPageView();
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+
+	<!-- Main -->
+	<script src="dist/app.js"></script>
+</body>
+</html>
