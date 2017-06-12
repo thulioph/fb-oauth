@@ -2,6 +2,10 @@ import Facebook from './Facebook';
 import FacebookURL from './FacebookURL';
 import BuildTemplate from './BuildTemplate';
 
+// Facebook Template
+const fbTemplate = document.querySelector('#facebook').innerHTML;
+const fbOutput = document.querySelector('#output-facebook');
+
 const button = document.querySelector('#facebook-btn');
 
 const APP = {
@@ -11,7 +15,7 @@ const APP = {
 
 	WebApp() {
 		this.origin = 'webapp';
-		this.facebook = new FacebookURL(window.FB);
+		this.facebook = new FacebookURL();
 	},
 
 	Desktop() {
@@ -27,26 +31,31 @@ const APP = {
 		const facebook = this.facebook;
 
 		if (this.origin === 'webapp') {
-			facebook.login();
+			facebook.checkUrl();
+
+			facebook.on('webapp_data', () => {
+				const obj = facebook.getUserData();
+				obj.photo = obj.picture.data.url;
+
+				BuildTemplate(fbTemplate, obj, fbOutput);
+			});
 		} else {
 			facebook.getStatus();
+
+			facebook.on('token', () => {
+				const tokenTemplate = document.querySelector('#token').innerHTML;
+				const obj = facebook.getToken();
+				const tokenOutput = document.querySelector('#output-token');
+
+				BuildTemplate(tokenTemplate, obj, tokenOutput);
+			});
+
+			facebook.on('user_profile', () => {
+				const obj = facebook.getProfile();
+				BuildTemplate(fbTemplate, obj, fbOutput);
+			});
 		}
 
-		facebook.on('token', () => {
-			const tokenTemplate = document.querySelector('#token').innerHTML;
-			const obj = facebook.getToken();
-			const tokenOutput = document.querySelector('#output-token');
-
-			BuildTemplate(tokenTemplate, obj, tokenOutput);
-		});
-
-		facebook.on('user_profile', () => {
-			const fbTemplate = document.querySelector('#facebook').innerHTML;
-			const obj = facebook.getProfile();
-			const fbOutput = document.querySelector('#output-facebook');
-
-			BuildTemplate(fbTemplate, obj, fbOutput);
-		});
 	}
 };
 
