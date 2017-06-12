@@ -7,6 +7,13 @@
     "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thulioph/fb-oauth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thulioph/fb-oauth/issues"
+  },
   "keywords": [
     "facebook",
     "oauth",
