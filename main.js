@@ -1,7 +1,7 @@
 'use strict';
 
-import App from './App';
-import BuildTemplate from './BuildTemplate';
+import App from './src/js/App';
+import BuildTemplate from './src/js/BuildTemplate';
 
 const displayNavigatorData = () => {
 	const templateScript = document.querySelector('#navigator').innerHTML;
