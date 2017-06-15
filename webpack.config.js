@@ -9,7 +9,7 @@ const config = {
     },
 
     output: {
-        path: path.resolve(__dirname, '../fb-auth/dist/'),
+        path: path.resolve(__dirname, './dist/'),
         filename: '[name].js'
     },
 
