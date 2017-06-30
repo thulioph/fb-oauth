@@ -1,6 +1,4 @@
-# Facebook oAuth
-
-> Facebook Web SDK
+# Facebook Authentication on Standalone Mode
 
 ## Getting Started
 
@@ -10,7 +8,7 @@
 $ npm install
 ```
 
-**Usage**
+**Start the server**
 
 ```
 $ npm start
