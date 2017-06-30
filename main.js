@@ -3,16 +3,20 @@
 import App from './src/js/App';
 import BuildTemplate from './src/js/BuildTemplate';
 
-const displayNavigatorData = () => {
+const displayNavigatorData = (data) => {
 	const templateScript = document.querySelector('#navigator').innerHTML;
-	const navigatorObj = window.navigator;
 	const output = document.querySelector('#output');
 
-	BuildTemplate(templateScript, navigatorObj, output);
+	BuildTemplate(templateScript, data, output);
 }
 
 document.addEventListener('DOMContentLoaded', (e) => {
-	displayNavigatorData();
+	const navigator = window.navigator;
+	let loading = document.querySelector('#loading');
+
+	displayNavigatorData(navigator);
+
+	loading.classList.remove('js-active');
 
 	if ('standalone' in navigator && navigator.standalone) {
 		App.WebApp();
