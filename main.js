@@ -23,5 +23,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
 	} else {
 		App.Desktop();
 	}
+
 	App.initEvents();
 }, false);
